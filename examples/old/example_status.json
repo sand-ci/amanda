@@ -1,0 +1,9 @@
+{
+  "type": "status",
+  "ps_host": "psmsu02.aglt2.org",
+  "ps_esmond_freshness_throughput_wcount": 33,
+  "ps_esmond_freshness_throughput_total": 70,
+  "ps_esmond_freshness_throughput_mcount": 46,
+  "ps_esmond_freshness_throughput_complete": 41.77,
+  "timestamp": 1675189305000
+}
