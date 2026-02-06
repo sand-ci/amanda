@@ -16,13 +16,15 @@ def filter(event)
     hs.each do |h|
         if h.length > 0
             hops.push(h["ip"].strip)
-            rtts.push(h["rtt"][2,6].to_f * 1000)
+            # Handle rtt field - convert to string first to ensure slice works
+            rtt_value = h["rtt"].to_s[2,6].to_f * 1000
+            rtts.push(rtt_value)
             ttls.push(c)
-            if h["as"]
+            if h["as"] && h["as"]["number"]
                 asns.push(h["as"]["number"])
             else
                 asns.push(0)
-                # TODO here do an asns lookup 
+                # TODO here do an asns lookup
             end
         else
             path_complete = false
