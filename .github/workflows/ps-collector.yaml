@@ -31,6 +31,10 @@ jobs:
           tags: |
             atlasanalyticsservice/ps-collector:latest
             atlasanalyticsservice/ps-collector:${{ github.sha }}
+          labels: |
+            org.opencontainers.image.source=${{ github.server_url }}/${{ github.repository }}
+            org.opencontainers.image.revision=${{ github.sha }}
+            org.opencontainers.image.url=${{ github.server_url }}/${{ github.repository }}
 
       - name: Repository Dispatch
         uses: peter-evans/repository-dispatch@v4
