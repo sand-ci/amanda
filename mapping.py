@@ -97,7 +97,19 @@ def get_netsite(ip_address):
     return ''
 
 
-def reload():
+def scitag_mapping():
+    print(" --- getting SciTags experiment/activity mapping ---")
+    r = requests.get('https://scitags.org/api.json', verify=False)
+    res = r.json()
+    for exp in res.get('experiments', []):
+        exp_id = exp['expId']
+        client.set(f'exp_{exp_id}', exp['expName'])
+        for activity in exp.get('activities', []):
+            client.set(f'exp_{exp_id}_act_{activity["activityId"]}', activity['activityName'])
+    print(len(res.get('experiments', [])), 'scitag experiments loaded.')
+
+
+def perfsonar_mapping():
     print(" --- getting PerfSonars from WLCG CRIC ---")
     r = requests.get(
         'https://wlcg-cric.cern.ch/api/core/service/query/?json&state=ACTIVE&type=PerfSonar',
@@ -142,4 +154,5 @@ def reload():
 
 
 if __name__ == "__main__":
-    reload()
+    scitag_mapping()
+    perfsonar_mapping()

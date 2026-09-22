@@ -1,6 +1,8 @@
 # perfSONAR collector to run at UC
 
-[![Build PerfSONAR rucio Logstash dockerhub image](https://github.com/ATLAS-Analytics/uc_ls_collectors/actions/workflows/ps-collector.yaml/badge.svg)](https://github.com/ATLAS-Analytics/uc_ls_collectors/actions/workflows/ps-collector.yaml)
+[![Build pS Mapper dockerhub image](https://github.com/sand-ci/amanda/actions/workflows/ps-mapper.yaml/badge.svg)](https://github.com/sand-ci/amanda/actions/workflows/ps-mapper.yaml)
+
+[![Build pS Mapper dockerhub image](https://github.com/sand-ci/amanda/actions/workflows/ps-mapper.yaml/badge.svg)](https://github.com/sand-ci/amanda/actions/workflows/ps-mapper.yaml)
 
 To get logstash statistics do:
 curl -XGET 'localhost:9600/_node/stats/pipelines/ps-collector?pretty'
@@ -21,3 +23,7 @@ One can manually execute it: kubectl create job --from=cronjob/<name of cronjob>
 
 To manually flush the cache:
 echo 'flush_all' | nc memcached.collectors.svc.cluster.local 11211
+
+## mapper
+
+

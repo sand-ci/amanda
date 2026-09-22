@@ -7,6 +7,6 @@ USER root
 RUN pip install pymemcache requests psconfig-client
 RUN mkdir /usr/share/mapper/
 
-COPY siteMapping.py /usr/share/mapper/
+COPY mapping.py /usr/share/mapper/
 
-CMD [ "python", "/usr/share/mapper/siteMapping.py" ]
+CMD [ "python", "/usr/share/mapper/mapping.py" ]
